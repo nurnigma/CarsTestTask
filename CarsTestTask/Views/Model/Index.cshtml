@@ -1,0 +1,28 @@
+﻿@{
+	ViewData["Title"] = "Модели";
+}
+@model List<(string brandName, Model model)>
+
+<h2>Список моделей</h2>
+<p><a asp-action="Create"><input type="submit" value="Добавить" /></a></p>
+<table class="table">
+	<tr><th>Бренд</th><th>Название</th><th>Актульность</th><th></th><th></th></tr>
+	@foreach (var element in Model)
+	{
+		<tr style="color:@(element.model.Active? "black" : "#dddddd");">
+			<td>@element.brandName</td>
+			<td>@element.model.Name</td>
+			<td>@(element.model.Active?"Да":"Нет")</td>
+			<td>
+				<a asp-action="Edit" asp-controller="model" asp-route-id="@element.model.Id">
+					<input type="submit" value="Изменить" />
+				</a>
+			</td>
+			<td>
+				<form asp-controller="model" asp-action="Delete" method="post" asp-route-id="@element.model.Id">
+					<input type="submit" value="Удалить" />
+				</form>
+			</td>
+		</tr>
+	}
+</table>

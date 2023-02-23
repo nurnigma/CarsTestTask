@@ -1,0 +1,24 @@
+﻿@{
+	ViewData["Title"] = "Модели";
+}
+@model List<(string brandName, List<Model> brandOfModels)>
+
+
+<h2>Список моделей</h2>
+<p><a asp-action="GroupByBrand"><input type="submit" value="Добавить" /></a></p>
+<table class="table">
+	<tr><th>Бренд</th><th>Название</th><th>Актульность</th><th></th><th></th></tr>
+
+	@foreach (var element in Model)
+	{
+		<tr><td><b>@element.brandName</b></td><td colspan="2"></td></tr>
+		@foreach (var item in element.brandOfModels)
+		{
+			<tr style="color:@(item.Active? "black" : "#dddddd");">
+				<td></td>
+				<td>@item.Name</td>
+				<td>@(item.Active?"Да":"Нет")</td>
+			</tr>
+		}
+	}
+</table>

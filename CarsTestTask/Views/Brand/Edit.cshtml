@@ -1,0 +1,17 @@
+﻿@model Brand
+
+<h2>Добавление модели автомобиля</h2>
+<form asp-action="Edit" asp-controller="brand" asp-route-id="@Model.Id">
+	<p>
+		<label asp-for="Name">Название бренда</label><br />
+		<input type="text" asp-for="Name" />
+
+		<input type="checkbox" asp-for="Active" class="form-check-input" value="true" />
+		<label class="form-check-label" asp-for="Active"></label>
+	</p>
+
+	<p>
+		<input type="submit" value="Сохранить изменения" />
+	</p>
+</form>
+

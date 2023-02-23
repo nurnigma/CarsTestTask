@@ -1,0 +1,23 @@
+﻿@model CarsTestTask.Models.Model
+
+<h2>Добавление модели автомобиля</h2>
+<form asp-action="Edit" asp-controller="model" asp-route-id="@Model.Id">
+	<p>
+
+		<label asp-for="Name">Название модели</label><br />
+		<input type="text" asp-for="Name" />
+
+		<input type="checkbox" asp-for="Active" class="form-check-input" />
+		<label class="form-check-label" asp-for="Active"></label>
+	<p>
+		<label asp-for="BrandID">Brand</label>
+		<select asp-for="BrandID" asp-items="ViewBag.Brand"></select>
+	</p>
+	</p>
+
+	<p>
+		<input type="submit" value="Сохранить изменения" />
+	</p>
+
+</form>
+
